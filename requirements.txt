@@ -1,2 +1,4 @@
-pandas
-datasets
+pandas==2.2.3
+datasets==3.6.0
+fastapi==0.115.12
+scikit-learn==1.6.1
