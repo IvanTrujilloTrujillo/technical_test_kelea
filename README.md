@@ -11,12 +11,13 @@ This project implements an AI-powered solution for sentiment analysis of movie r
 
 ## Project Structure
 ```
-├── ai_engineer_technical_assesment 1.ipynb  # Main notebook with all code and explanations
-├── fastapi_main.py                          # Fastapi app for demostration purpose
-├── requirements.txt                         # Python dependencies
-├── .gitignore                               # Git ignore file
-├── fine_tuned_model/                        # Directory containing the fine-tuned model
-└── tokenizer/                               # Directory containing the tokenizer
+├── ai_engineer_technical_assesment 1.ipynb           # Main notebook with all code and explanations
+├── ai_engineer_technical_assesment 1_executed.ipynb  # Main notebook with all code, explanations and outputs
+├── fastapi_main.py                                   # Fastapi app for demostration purpose
+├── requirements.txt                                  # Python dependencies
+├── .gitignore                                        # Git ignore file
+├── fine_tuned_model/                                 # Directory containing the fine-tuned model
+└── tokenizer/                                        # Directory containing the tokenizer
 ```
 
 **NOTE**: Fine-tuned model and tokenizer are not included in the repository due to file size limitations.
