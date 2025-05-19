@@ -328,8 +328,7 @@ def analyze_sentiment(request: ReviewRequest):
         result = complete_prediction(
             text=request.review_text,
             model=global_model,
-            tokenizer=global_tokenizer,
-            train_data=global_train_data
+            tokenizer=global_tokenizer
         )
 
         # Format similar reviews for response
