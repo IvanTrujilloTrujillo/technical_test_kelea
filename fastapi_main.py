@@ -85,7 +85,7 @@ def preprocess_data(df: pd.DataFrame, tokenizer: PreTrainedTokenizerFast, max_le
 
 
 dataset = load_dataset("imdb")
-train_df = pd.DataFrame(dataset['train'])
+train_df = pd.DataFrame(dataset['train']).sample(n=5000, random_state=42)
 global_train_data = preprocess_data(train_df, global_tokenizer)
 
 def generate_embedding(text: str, model: any, tokenizer: PreTrainedTokenizerFast) -> np.ndarray:
@@ -293,14 +293,13 @@ def find_similar_reviews(text: str, top_n: int = 2) -> List[Dict]:
     return similar_reviews
 
 
-def complete_prediction(text: str, model: any, tokenizer: PreTrainedTokenizerFast, train_data: List[Dict]) -> Dict[str, any]:
+def complete_prediction(text: str, model: any, tokenizer: PreTrainedTokenizerFast) -> Dict[str, any]:
     """Complete prediction function that returns sentiment, confidence, and similar reviews.
 
     Args:
         text (str): The review text.
         model (any): The model to be used.
         tokenizer (PreTrainedTokenizerFast): The tokenizer to be used for preprocessing.
-        train_data (List[Dict]): The training data.
 
     Returns:
         (Dict[str, any]): A dictionary containing the result.
@@ -309,7 +308,7 @@ def complete_prediction(text: str, model: any, tokenizer: PreTrainedTokenizerFas
     result = predict_sentiment(text, model, tokenizer)
 
     # Find similar reviews
-    similar_reviews = find_similar_reviews(text, train_data)
+    similar_reviews = find_similar_reviews(text)
 
     return {
         "sentiment": result["sentiment"],
